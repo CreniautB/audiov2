@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/audiov2/static/css/main.e99f379b.css",
+    "main.js": "/audiov2/static/js/main.1fdb1a5b.js",
+    "static/js/787.0e713509.chunk.js": "/audiov2/static/js/787.0e713509.chunk.js",
+    "static/media/Talbot-Type-Kessel105-Thin.otf": "/audiov2/static/media/Talbot-Type-Kessel105-Thin.fe93c49d9b838e84dc74.otf",
+    "static/media/Talbot-Type-Kessel105-Bold.otf": "/audiov2/static/media/Talbot-Type-Kessel105-Bold.f5bfeb8d81723f9d7ca9.otf",
+    "index.html": "/audiov2/index.html",
+    "main.e99f379b.css.map": "/audiov2/static/css/main.e99f379b.css.map",
+    "main.1fdb1a5b.js.map": "/audiov2/static/js/main.1fdb1a5b.js.map",
+    "787.0e713509.chunk.js.map": "/audiov2/static/js/787.0e713509.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e99f379b.css",
+    "static/js/main.1fdb1a5b.js"
+  ]
+}
