@@ -23,7 +23,7 @@
 }
 
 .header h1 {
-  font-size: 2.2vw;
+  font-size: 2vw;
   margin: 0;
   margin-left: 1em;
 }
@@ -49,9 +49,18 @@
 }
 
 .header .nav h2 {
-  font-size: 1.4vw;
+  font-size: 1.2vw;
   cursor: pointer;
   margin: 0;
+  -webkit-animation: all 3s ease-in-out;
+          animation: all 3s ease-in-out;
+}
+
+.header .nav h2:hover {
+  text-decoration: underline;
+  -webkit-text-decoration-color: #804c36;
+          text-decoration-color: #804c36;
+  text-underline-offset: 6px;
 }
 
 .header .nav .activeTitle {
@@ -61,60 +70,19 @@
   text-underline-offset: 6px;
 }
 
-.rhap_progress-bar {
-  height: 4px !important;
-}
-
-.rhap_controls-section {
-  margin-top: 0 !important;
-}
-
-.rhap_progress-section {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.rhap_progress-container {
-  width: 100vw !important;
-  margin: 0 !important;
-  margin-top: -2px !important;
-  height: 10px !important;
-}
-
-.rhap_time {
-  color: #804c36 !important;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-}
-
-.rhap_button-clear svg {
-  height: 0.8em;
-}
-
-.separatorTime {
-  margin: 0.3em 0.5em;
-}
-
-.musicName {
-  margin: 0.2em auto;
-  overflow: hidden;
-  max-width: 300px;
-  white-space: nowrap;
-  width: 100%;
-  text-align: center;
-  font-size: 15px;
-}
-
-.musicName p {
-  font-weight: 600;
-  color: #67443a;
-  margin: 0.1em;
+@media screen and (max-width: 600px) {
+  .header {
+    border-bottom: 1px solid white;
+  }
+  .header h1 {
+    font-size: 3vw;
+  }
+  .header .nav {
+    width: 45vw !important;
+    margin-right: 1em !important;
+  }
+  .header h2 {
+    font-size: 2.5vw !important;
+  }
 }
 /*# sourceMappingURL=header.css.map */

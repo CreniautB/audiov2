@@ -244,3 +244,62 @@ $brown: #67443a;
 .rhap_button-clear:focus:not(:focus-visible) {
   outline: 0;
 }
+
+.rhap_progress-bar {
+  height: 4px !important;
+}
+.rhap_progress-container {
+}
+.rhap_controls-section {
+  margin-top: 0 !important;
+}
+.rhap_progress-section {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.rhap_progress-container {
+  width: 100vw !important;
+  margin: 0 !important;
+  margin-top: -2px !important;
+  height: 10px !important;
+}
+.rhap_time {
+  color: #804c36 !important;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  font-weight: 13px;
+}
+.rhap_button-clear {
+  svg {
+    height: 0.8em;
+  }
+}
+.separatorTime {
+  margin: 0.3em 0.5em;
+}
+
+.musicName {
+  margin: 0.2em auto 0.7em auto;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  text-align: center;
+  font-size: 13px;
+  p {
+    // animation: marquee 15s linear infinite;
+    // margin: 0.7em 0 0.3em 0;
+    font-weight: 600;
+    color: #67443a;
+    margin: 0.1em;
+  }
+}
+
+// @keyframes marquee {
+//   0% {
+//     transform: translate(0, 0);
+//   }
+//   100% {
+//     transform: translate(-100%, 0);
+//   }
+// }
