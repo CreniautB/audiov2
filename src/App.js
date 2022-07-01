@@ -13,16 +13,19 @@ function App() {
   const [indexMusic, setIndexMusic] = useState(0);
   const [videoSrc, setVideoSrc] = useState();
   const [reload, setReload] = useState(false);
+  const [onAir, setOnAir] = useState(false);
 
-  const [onAir, setOnAir] = useState(true);
+  const refBtn = useRef();
+
+  const refOnAir = useRef();
 
   const player = useRef();
-  const url = "https://back.testbenjaminc.fr/";
+  const url = "https://back.lnpwebradio.fr/";
 
   useEffect(() => {
     async function fetchMyAPI() {
       let response = await fetch(
-        `https://back.testbenjaminc.fr/api/playlists?populate=*`
+        `https://back.lnpwebradio.fr/api/playlists?populate=*`
       );
       response = await response.json();
       setData(response.data);
@@ -43,32 +46,31 @@ function App() {
   function getTheStatus(data) {
     setIndexMusic(0);
     const hour = new Date().getHours();
+    let notNight = false;
     let night;
     data.forEach((element, index) => {
-      console.log(index);
       if (element.attributes.name === "nuit") {
         night = element;
       }
       if (
-        hour >= element.attributes.minTime &&
-        hour < element.attributes.maxTime
+        element.attributes.maxTime >= hour &&
+        element.attributes.minTime <= hour
       ) {
+        setOnAir(true);
         let newDatas = randomize(element);
         setCurrentStatus(newDatas);
         setReload(!reload);
         setVideoSrc(url + element.attributes.background.data.attributes.url);
-        setOnAir(true);
-        return;
-      } else {
-        if (index === 2) {
-          let newDatas = randomize(night);
-          setCurrentStatus(newDatas);
-          setReload(!reload);
-          setVideoSrc(url + night.attributes.background.data.attributes.url);
-          setOnAir(true);
-        }
+        notNight = true;
       }
     });
+    if (!notNight) {
+      setOnAir(true);
+      let newDatas = randomize(night);
+      setCurrentStatus(newDatas);
+      setReload(!reload);
+      setVideoSrc(url + night.attributes.background.data.attributes.url);
+    }
   }
 
   function switchStatus(e, status) {
@@ -136,8 +138,8 @@ function App() {
         <meta charSet="utf-8" />
         <title>Maison Palmier</title>
       </Helmet>
-      <Header switchStatus={switchStatus} />
-      {currentStatus == undefined ? (
+      <Header switchStatus={switchStatus} refOnAir={refOnAir} />
+      {currentStatus === undefined ? (
         <></>
       ) : (
         <>
@@ -148,8 +150,9 @@ function App() {
                 ref={player}
                 showSkipControls={false}
                 showJumpControls={false}
-                autoPlay
+                playsInline={true}
                 src={src}
+                autoPlay
                 onClickNext={(e) => nextMusic(e)}
                 onClickPrevious={(e) => previousMusic(e)}
                 onEnded={(e) => nextMusic(e)}

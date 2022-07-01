@@ -1,7 +1,7 @@
 import React from "react";
 import "./header.css";
 
-const Header = ({ switchStatus }) => {
+const Header = ({ switchStatus, refOnAir }) => {
   return (
     <div className="header">
       <h1>
@@ -10,11 +10,16 @@ const Header = ({ switchStatus }) => {
       <div className="nav">
         <h2
           className="headerTitle activeTitle"
+          ref={refOnAir}
           onClick={(e) => switchStatus(e, "all")}
         >
           On-air
         </h2>
-        <h2 className="headerTitle" onClick={(e) => switchStatus(e, "matin")}>
+        <h2
+          className="headerTitle"
+          ref={refOnAir}
+          onClick={(e) => switchStatus(e, "matin")}
+        >
           Morning
         </h2>
         <h2
